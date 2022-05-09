@@ -10,7 +10,7 @@ const con = mysql.createConnection({
 
 exports.postLogin = (req, res) => {
     const { username, password } = req.body;
-    var sql = "SELECT * FROM account WHERE username = '" + con.escape(username) + "' AND password = '" + con.escape(password) + "'";
+    var sql = "SELECT * FROM account WHERE username = " + con.escape(username) + " AND password = " + con.escape(password);
     con.query(sql, function (err, results) {
         if (err) throw err;
         if (results.length > 0) {
