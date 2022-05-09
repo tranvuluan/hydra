@@ -28,7 +28,15 @@ exports.getLogin = (req, res) => {
 
 
 exports.getHome = (req, res) => {
-    res.render('home', { title: 'home', result: '' })
+    con.query(sql, function (err, results) {
+        if (err) throw err;
+        if (results.length > 0) {
+            console.log(results);
+            // res.render('home', { title: 'Home', products:  })
+        } else {
+            // res.render('home', { title: 'Home' })
+        }
+    });
 }
 
 exports.getDetail = (req, res) => {
