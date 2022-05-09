@@ -24,6 +24,7 @@ var accessLogStream = rfs.createStream('access.log', {
 // setup the logger
 app.use(morgan('dev'));
 // view engine setup
+app.use( express.static( "public" ) );
 app.set('views', path.join(__dirname, './server/views'));
 app.set('view engine', 'ejs');
 app.use(bodyParser.json());

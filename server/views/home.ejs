@@ -24,7 +24,7 @@
                     <a href="/detail?prod=12345">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="images/<%= product.image_book %>"
+                            <img class="card-img-top" src="./images/<%= product.image_book.split('_')[2] %>"
                                 alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
