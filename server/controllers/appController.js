@@ -41,15 +41,16 @@ exports.getHome = (req, res) => {
 }
 
 exports.getDetail = (req, res) => {
-    const {id_book} = req.query;
+    const { id_book } = req.query;
     const sql = "SELECT * FROM tbl_book WHERE id_book = '" + id_book + "'";
     con.query(sql, function (err, results) {
-        if (err) throw err;
-        if (results.length > 0) {
-            console.log(results);
-            res.render('detail', { title: 'Detail', product: results[0] })
-        } else {
-            res.render('404')
+        if (!err) {
+            if (results.length > 0) {
+                console.log(results);
+                res.render('detail', { title: 'Detail', product: results[0] })
+            } else {
+                res.render('404')
+            }
         }
     });
 }
