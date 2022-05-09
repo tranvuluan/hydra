@@ -10,7 +10,7 @@ const con = mysql.createConnection({
 
 exports.postLogin = (req, res) => {
     const { username, password } = req.body;
-    var sql = "SELECT * FROM tbl_useraccount WHERE username = " + con.escape(username) + " AND userpassword = md5(" + con.escape(password) + ")";
+    const sql = "SELECT * FROM tbl_useraccount WHERE username = " + con.escape(username) + " AND userpassword = md5(" + con.escape(password) + ")";
     con.query(sql, function (err, results) {
         if (err) throw err;
         if (results.length > 0) {
@@ -28,6 +28,7 @@ exports.getLogin = (req, res) => {
 
 
 exports.getHome = (req, res) => {
+    const sql = "SELECT * FROM tbl_book LIMIT 10";
     con.query(sql, function (err, results) {
         if (err) throw err;
         if (results.length > 0) {
