@@ -10,7 +10,7 @@ router.get('/login', appController.getLogin);
 
 router.post('/login', appController.postLogin);
 
-
+router.get('/404', appController.getErrorPage);
 
 router.get('*', (req, res) => {
 

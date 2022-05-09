@@ -35,7 +35,7 @@ exports.getHome = (req, res) => {
             console.log(results);
             res.render('home', { title: 'Home', products: results })
         } else {
-            res.render('home', { title: 'Home', products: results })
+            res.render('404')
         }
     });
 }
@@ -49,7 +49,11 @@ exports.getDetail = (req, res) => {
             console.log(results);
             res.render('detail', { title: 'Detail', product: results[0] })
         } else {
-            res.render('detail', { title: 'Detail', product: results[0] })
+            res.render('404')
         }
     });
+}
+
+exports.getErrorPage = (req, res) => {
+    res.render('404', { title: '404' })
 }
