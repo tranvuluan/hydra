@@ -33,9 +33,9 @@ exports.getHome = (req, res) => {
         if (err) throw err;
         if (results.length > 0) {
             console.log(results);
-            // res.render('home', { title: 'Home', products:  })
+            res.render('home', { title: 'Home', products: results })
         } else {
-            // res.render('home', { title: 'Home' })
+            res.render('home', { title: 'Home', products: results })
         }
     });
 }
