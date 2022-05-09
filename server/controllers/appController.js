@@ -42,7 +42,7 @@ exports.getHome = (req, res) => {
 
 exports.getDetail = (req, res) => {
     const {id_book} = req.query;
-    const sql = "SELECT * FROM tbl_book WHERE id_book = '" + id_book + "'";
+    const sql = "SELECT * FROM tbl_book WHERE id_book = " + con.escape(id_book);
     con.query(sql, function (err, results) {
         if (err) throw err;
         if (results.length > 0) {
