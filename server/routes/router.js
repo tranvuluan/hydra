@@ -1,14 +1,14 @@
 const router = require('express').Router();
 const appController = require('../controllers/appController');
 
-router.get('/', appController.getHome);
+router.get('/home', appController.getHome);
 
 
 router.get('/detail', appController.getDetail);
 
-router.get('/login', appController.getLogin);
+router.get('/', appController.getLogin);
 
-router.post('/login', appController.postLogin);
+router.post('/', appController.postLogin);
 
 router.get('/404', appController.getErrorPage);
 
