@@ -41,6 +41,15 @@ exports.getHome = (req, res) => {
 }
 
 exports.getDetail = (req, res) => {
-    console.log(req.query)
-    res.render('detail', { title: 'Chi tiet', result: '' })
+    const {id_book} = req.query;
+    const sql = "SELECT * FROM tbl_book WHERE id_book = " + con.escape(id_book);
+    con.query(sql, function (err, results) {
+        if (err) throw err;
+        if (results.length > 0) {
+            console.log(results);
+            res.render('detail', { title: 'Detail', product: results[0] })
+        } else {
+            res.render('detail', { title: 'Detail', product: results[0] })
+        }
+    });
 }
